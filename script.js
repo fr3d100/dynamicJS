@@ -76,5 +76,42 @@ navbar.addEventListener("dblclick", function(){
 	}	
 });
 
+/*****************
+=== FEATURE 6 ====
+******************/
 
 
+let allCardsOnPage = document.querySelectorAll('.card');
+
+
+let reduceSize = function(card){
+	card.getElementsByTagName('img')[0].style.width = '20%'
+}
+
+let hideText = function(card){
+	card.getElementsByClassName('card-text')[0].style.display = 'none';
+} 
+
+let growSize = function(card){
+	card.getElementsByTagName('img')[0].style.width = '100%'
+}
+
+let showText = function(card){
+	card.getElementsByClassName('card-text')[0].style.display = 'block';
+} 
+
+
+allCardsOnPage.forEach(function(card,index){
+	
+	card.getElementsByTagName('button')[0].addEventListener('mouseover', function(){
+		
+		if(card.getElementsByClassName('card-text')[0].style.display === 'none'){
+			growSize(card);
+			showText(card);
+		}
+		else{
+			reduceSize(card);
+			hideText(card);
+		}
+	});
+});
